@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/style.css">
+    <title>SINGLEPLAYER CLASSIC</title>
+</head>
+<div class="header" style="position: relative;">
+    <img src="images/HeaderGTW.png" alt="" class="header-logo">
+    <button onclick="location.href='index.html'">Return to frontpage</button>
+</div>
+<body>
+    <div class="container">
+        <h1>SINGLEPLAYER CLASSIC</h1>
+        <div id="word-display"></div>
+        <input type="text" id="guess-input" maxlength="1" placeholder="Enter a letter">
+        <input type="text" id="word-guess-input" placeholder="Enter the entire word">
+        <button onclick="checkGuess()">Check Guess</button>
+        <button onclick="guessEntireWord()">Guess Entire Word</button>
+        <button onclick="startSinglePlayerGame()">Start singleplayer game</button>
+        <div id="feedback"></div>
+        <div id="guessed-letters"></div> 
+        <div id="turn-indicator"></div>
+        <div id="game-message"></div>
+        <div id="correct-guess-message"></div>
+
+        <script src="js/gameActions.js"></script>
+        <script src="js/game.js"></script>
+    </div>
+</body>
+</html>

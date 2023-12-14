@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Disse HTML instillinger er lignene til alle de andre gamemodes HTML filer, derfor kan denne bruges til forklaring af andre HTML filer-->
+    <!-- Indeholder metadata og links til andre ressourcer -->
+    <meta charset="UTF-8">
+    <!-- Definerer tegnsæt som UTF-8 for korrekt tekstvisning -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Linker til ekstern CSS-fil for stilindstillinger -->
+    <title>MULTIPLAYER TIME-TRIAL</title>
+    <!-- Titel på websiden, vises i browserens titellinje eller fane -->
+</head>
+
+<div class="header" style="position: relative;">
+    <!-- 'header' klassen anvendes, med inline CSS for positionering -->
+    <img src="images/HeaderGTW.png" alt="" class="header-logo">
+    <!-- Indsætter et billede som logo i headeren -->
+    <button onclick="location.href='index.html'">Return to frontpage</button>
+    <!-- En knap til at navigere tilbage til forsiden -->
+</div>
+
+<body>
+    <!-- Hovedindholdet af websiden -->
+    <div class="container">
+        <!-- Container til at indkapsle indholdet -->
+        <h1>MULTIPLAYER TIME-TRIAL</h1>
+        <!-- Overskrift for siden -->
+        <div id="word-display"></div>
+        <!-- Et element til at vise ord i spillet -->
+        <input type="text" id="guess-input" maxlength="1" placeholder="Enter a letter">
+        <!-- Tekstfelt til at indtaste et bogstav -->
+        <input type="text" id="word-guess-input" placeholder="Enter the entire word">
+        <!-- Tekstfelt til at indtaste hele ordet -->
+        <button onclick="checkGuess()">Check Guess</button>
+        <!-- Knap til at tjekke enkelte gæt -->
+        <button onclick="guessEntireWord()">Guess Entire Word</button>
+        <!-- Knap til at gætte hele ordet -->
+        <button onclick="startMultiPlayerGame(); enableTimeTrial()">Start multiplayer Time-Trial</button>
+        <!-- Knap til at starte multiplayer-timmetrail -->
+        <div id="feedback"></div>
+        <!-- Container til tilbagemeldinger fra spillet -->
+        <div id="guessed-letters"></div>
+        <!-- Viser de allerede gættede bogstaver -->
+        <div id="turn-indicator"></div>
+        <!-- Indikator for hvem der er på tur i spillet -->
+        <div id="timer">Time: 30s</div>
+        <!-- Viser en timer for spillet -->
+        <div id="game-message"></div>
+        <!-- Container til spilbeskeder -->
+        <div id="correct-guess-message"></div>
+        <!-- Viser beskeder for korrekte gæt -->
+
+        <!-- Linker til JavaScript-filer for spillogik og funktionalitet -->
+        <script src="js/gameActions.js"></script>
+        <script src="js/game.js"></script>
+        <script src="js/multiplayer.js"></script>
+    </div>
+</body>
+</html>

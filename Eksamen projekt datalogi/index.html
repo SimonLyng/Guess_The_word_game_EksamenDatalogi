@@ -1,0 +1,23 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8" /> <!-- Definerer tegnsæt som UTF-8 for korrekt tekstvisning -->
+    <link rel="stylesheet" href="css/style.css" /> <!-- Linker til ekstern CSS-fil for stilindstillinger -->
+    <title>GUESS THE WORD</title> <!-- Titel på websiden, vises i browserens titellinje eller fane -->
+</head>
+
+<div class="header" style="position: relative;"> <!-- 'header' klassen anvendes, med inline CSS for positionering -->
+    <img src="images/HeaderGTW.png" alt="" class="header-logo"> <!-- Indsætter et billede som logo i headeren -->
+    <button onclick="location.href='rules.html'">Rules</button> <!-- En knap til at navigere til regelsiden -->
+</div>
+
+<body>
+    <div class=""> <!-- Container for hovedindholdet på siden, her kunne en  css klasse sættes in, ikke nødvendigt i dette tilfælde-->
+        <!-- Links til forskellige "gamemodes", hver indeholdt i en 'box' klasse for stil -->
+        <a href="singleplayer_classic.html" class="box"> Singleplayer Classic </a> <!-- Link til singleplayer klassisk spil -->
+        <a href="singleplayer_time_trial.html" class="box"> Singleplayer Time-Trial </a> <!-- Link til singleplayer Time trial spil -->
+        <a href="multiplayer_classic.html" class="box"> Multiplayer Classic </a> <!-- Link til multiplayer klassisk spil -->
+        <a href="multiplayer_time_trial.html" class="box"> Multiplayer Time-Trial </a> <!-- Link til multiplayer trial spil -->
+    </div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8"> <!-- Definerer tegnsæt som UTF-8 for korrekt tekstvisning -->
+    <title>Game Rules</title> <!-- Titel på websiden, vises i browserens titellinje eller fane -->
+    <link rel="stylesheet" href="css/style.css"> <!-- Linker til ekstern CSS-fil for stilindstillinger -->
+</head>
+
+<div class="header" style="position: relative;"> <!-- 'header' klassen anvendes, med inline CSS for positionering -->
+    <img src="images/HeaderGTW.png" alt="" class="header-logo"> <!-- Indsætter et billede som logo i headeren -->
+    <button onclick="location.href='index.html'">Return to frontpage</button> <!-- En knap til at navigere tilbage til forsiden -->
+</div>
+
+<body>
+    <div class="container"> <!-- Container til at indkapsle indholdet om spillets regler -->
+        <div class="rules-content"> <!-- Container for indholdet af spillets regler -->
+            <h2>Game Rules</h2> <!-- Overskrift for spillets regler -->
+            <p>The objective of the game is to guess the word by suggesting letters within a certain number of guesses.</p> <!-- Beskrivelse af spillets mål -->
+            <ul> <!-- Liste med specifikke regler for spillet -->
+                <li>In Multiplayer Each player takes turns to guess a letter.</li> 
+                <li>If the suggested letter exists in the word, it will appear in all its correct positions.</li> 
+                <li>If the suggested letter does not exist in the word, one guess is subtracted.</li> 
+                <li>The game continues until the word is completely guessed, all guesses are used or the time runs out in time-trial gamemode</li> 
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
