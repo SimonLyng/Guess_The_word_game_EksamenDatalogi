@@ -171,7 +171,6 @@ function guessEntireWord() {
       setTimeout(function () {
         message.textContent = "";
       }, 2000);
-
       startGame();
     }
 

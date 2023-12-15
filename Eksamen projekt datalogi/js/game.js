@@ -1,4 +1,4 @@
-let words = ["determinisme", "hverdagskultur", "gaps", "aura", "emergens", "boolean", "array", "class", "loop", "javascript", "parasocial"];
+let words = ["parasocial"];
 let targetWord = "";
 let guessedWord = "";
 let maxAttempts = 12;
@@ -10,6 +10,13 @@ let timeTrial = false;
 let timer;
 let timePassed = 0;
 let timerStarted = false;
+let timerId;
+
+function clearTimer() {
+  clearInterval(timer); // Stopper vores timer.
+  // Kører funktionen endGame da tiden er gået.
+  endGame();
+}
 
 function startGame() {
   // Hvis spillet bliver startet for første gang så tjekkes der om det er multiplayer.
@@ -36,7 +43,8 @@ function startGame() {
 
   // Hvis det er time-trial så skal der startes en nedtælling 
   if (timeTrial) {
-    timePassed = 30;
+    clearTimeout(timerId);
+    timePassed = 60;
     // Hvis tiden ikke er startet bruger funktionen setInterval til at kalde updateTimer funktionen hvert sekund og sætter timeStarted til true.
     // Det er med til at sikre at vi ikke starter flere timere på samme tid.
     if (!timerStarted) {
@@ -45,10 +53,7 @@ function startGame() {
     }
 
     // Her sætter vi en timeout så vi efter 30 sek stopper spillet da tiden er gået.
-    setTimeout(function () {
-      clearInterval(timer); // Stopper vores timer.
-      endGame(); // Kører funktionen endGame da tiden er gået.
-    }, 30000); // 30 sek.
+    timerId = setTimeout(clearTimer, 60000); // 60 sek.
   }
 }
 
@@ -58,6 +63,8 @@ function endGame() {
 
   // Viser denne tekst inde på vores side
   gameMessage.textContent = "Time's up! Game Over!";
+  timerStarted = false;
+  clearTimeout(timerId);
 
   if (isMultiplayer) {
     switchPlayer(); // Hvis det er multiplayer så skifter vi spiller
@@ -67,6 +74,7 @@ function endGame() {
       gameMessage.textContent = ""; // Fjerner vores besked inde på siden efter 2 sek.
       startGame();
     }, 2000); // Starter et nyt spil efter de 2 sek.
+    
   }
 }
 
