@@ -1,4 +1,4 @@
-let words = ["parasocial"];
+let words = ["intertekstualiet","determinisme","socialkonstruktivisme","hverdagskultur","metalingvistik","aura","emergens"," booleans","array","class","loop","javascript","parasocial"];
 let targetWord = "";
 let guessedWord = "";
 let maxAttempts = 12;
