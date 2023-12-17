@@ -8,7 +8,7 @@ let currentPlayer = 0;
 let guessedLetters = [];
 let timeTrial = false;
 let timer;
-let timePassed = 0;
+let maxTime = 0;
 let timerStarted = false;
 let timerId;
 
@@ -44,7 +44,7 @@ function startGame() {
   // Hvis det er time-trial så skal der startes en nedtælling 
   if (timeTrial) {
     clearTimeout(timerId);
-    timePassed = 60;
+    maxTime = 60;
     // Hvis tiden ikke er startet bruger funktionen setInterval til at kalde updateTimer funktionen hvert sekund og sætter timeStarted til true.
     // Det er med til at sikre at vi ikke starter flere timere på samme tid.
     if (!timerStarted) {
@@ -106,16 +106,16 @@ function updateDisplay() {
   // Bruger .join til at sammensætte det gættede bogstaver. Der sætted et efter bogstavet ","
   // Viser tiden der er tilbage. 
   let timerDisplay = document.getElementById("timer");
-  timerDisplay.textContent = "Time: " + timePassed + "s";
+  timerDisplay.textContent = "Time: " + maxTime + "s";
 }
 
 function updateTimer() {
   // Funktionene her bruges til at update timeren så den tæller nedad.
-  timePassed--;
-  if (timePassed < 0) {
+  maxTime--;
+  if (maxTime < 0) {
     clearInterval(timer); // Stopper timeren når den rammer 0
     endTimeTrialGame();
   } else {
-    document.getElementById("timer").textContent = "Time: " + timePassed + "s";
+    document.getElementById("timer").textContent = "Time: " + maxTime + "s";
   }
 }
