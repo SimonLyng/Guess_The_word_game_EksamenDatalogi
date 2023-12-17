@@ -15,7 +15,7 @@ let timerId;
 function clearTimer() {
   clearInterval(timer); // Stopper vores timer.
   // Kører funktionen endGame da tiden er gået.
-  endGame();
+  endTimeTrialGame();
 }
 
 function startGame() {
@@ -57,7 +57,7 @@ function startGame() {
   }
 }
 
-function endGame() {
+function endTimeTrialGame() {
   clearInterval(timer); // Stopper vores timer
   let gameMessage = document.getElementById("game-message"); // Henter html elementet "game-message"
 
@@ -114,7 +114,7 @@ function updateTimer() {
   timePassed--;
   if (timePassed < 0) {
     clearInterval(timer); // Stopper timeren når den rammer 0
-    endGame();
+    endTimeTrialGame();
   } else {
     document.getElementById("timer").textContent = "Time: " + timePassed + "s";
   }
