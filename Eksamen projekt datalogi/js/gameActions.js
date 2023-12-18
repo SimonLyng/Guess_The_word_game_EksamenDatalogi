@@ -134,10 +134,9 @@ function checkGuess() {
     setTimeout(function () {
       correctGuessMessage.textContent = "";
     }, 2000);
- 
-    updateDisplay(); //Opdaterer vores display efter hvert gæt
 
   }
+  updateDisplay(); //Opdaterer vores display efter hvert gæt
 }
 
 function guessEntireWord() {
@@ -183,21 +182,34 @@ function guessEntireWord() {
 
     //Hvis det er ingen forsøg tilbage så vises beskeden og spilleren skiftes.
     if (attemptsLeft === 0) {
-      message.textContent =
-        "Game Over! The word was: " +
-        targetWord +
-        ". Better luck next time, " +
-        players[currentPlayer] +
-        "!";
+      if (isMultiplayer) {
+        //Hvis det er multiplayer så viser den også hvilken spiller det ikke gættede ordet.
+        let message = document.getElementById("game-message");
+        message.textContent =
+          "Game Over! The word was: " +
+          targetWord +
+          ". Better luck next time, " +
+          players[currentPlayer] +
+          "!";
 
-      setTimeout(function () {
-        message.textContent = "";
-      }, 2000);
+        setTimeout(function () {
+          message.textContent = "";
+        }, 2000);
 
-      switchPlayer();
-    } else {
-      //Ellers opdateres displayet med nye oplysninger.
-      updateDisplay();
+        switchPlayer(); //skifter til den anden spiller
+      } else {
+        //Hvis det er singleplayer så skriver den bare targetWord og skifter spiller.
+        let message = document.getElementById("game-message");
+        message.textContent =
+          "Game Over! The word was: " + targetWord + ". Better luck next time!";
+
+        setTimeout(function () {
+          message.textContent = "";
+        }, 2000);
+
+        startGame();
+      }
     }
+    updateDisplay();
   }
 }

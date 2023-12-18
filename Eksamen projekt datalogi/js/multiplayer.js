@@ -4,8 +4,11 @@ let players = [];
 // Funktion til at skifte den nuværende spiller
 function switchPlayer() {
   // Opdaterer den nuværende spiller ved at skifte til den næste i rækken
-  currentPlayer = (currentPlayer + 1) % players.length;
+  currentPlayer = currentPlayer + 1;
+if (currentPlayer === players.length) {
+  currentPlayer = 0; // nulstiller til første spiller
 
+}
   // Vælger et nyt ord tilfældigt fra ordlisten
   targetWord = words[Math.floor(Math.random() * words.length)];
   // Opretter gættede ord med understregninger svarende til ordets længde
@@ -19,10 +22,6 @@ function switchPlayer() {
 
   // Opdaterer spillets visning med de nye værdier
   updateDisplay();
-
-  // Viser en advarsel til den nuværende spiller om, at det er deres tur
-  alert(" " + players[currentPlayer] + " it's your turn to guess!");
-
   // Tjekker, om det er den sidste spillers tur og alle forsøg er brugt
   if (currentPlayer === players.length - 1 && attemptsLeft === 0) {
     // Starter spillet forfra
