@@ -126,9 +126,6 @@ function checkGuess() {
     }
     return;
   }
-
-  updateDisplay(); //Opdaterer vores display efter hvert gæt
-
   if (correctGuess) {
     //Hvis der bliver gættet korrekt så bliver der vist en besked i 2 sekunder
     let correctGuessMessage = document.getElementById("correct-guess-message");
@@ -137,6 +134,9 @@ function checkGuess() {
     setTimeout(function () {
       correctGuessMessage.textContent = "";
     }, 2000);
+ 
+    updateDisplay(); //Opdaterer vores display efter hvert gæt
+
   }
 }
 
